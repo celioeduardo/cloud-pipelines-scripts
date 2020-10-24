@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x 
-
 function logInToPaas() {
     local clusterName="PAAS_${ENVIRONMENT}_CLUSTER_NAME"
 	local k8sClusterName="${!clusterName}"
