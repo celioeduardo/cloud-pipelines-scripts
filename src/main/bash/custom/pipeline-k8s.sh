@@ -1,6 +1,9 @@
 #!/bin/bash
 
 function logInToPaas() {
+
+	set -x 
+
     local clusterName="PAAS_${ENVIRONMENT}_CLUSTER_NAME"
 	local k8sClusterName="${!clusterName}"
 
@@ -19,6 +22,7 @@ function logInToPaas() {
 
     echo "logInToPass aws region: ${k8sClusterRegion:-us-east-1} name ${k8sClusterName}"
     aws eks --region ${k8sClusterRegion:-us-east-1} update-kubeconfig --name ${k8sClusterName} --kubeconfig ${KUBE_CONFIG_PATH}
+
 }
 
 export -f logInToPaas
